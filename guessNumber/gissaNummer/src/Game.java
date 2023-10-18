@@ -21,12 +21,15 @@ public class Game{
             Scanner userInput = new Scanner(System.in);
             boolean playAgain = true;
             
-                //gör en loop om man vill spela igen
-                while(playAgain){
-
                 
-                    //starta själva spel
-                    gameAlgorithm();    
+            //starta själva spelet
+            gameAlgorithm();
+                //gör en loop om man vill spela igen
+                //while-loop för gå tillbaka till meny
+                do {
+                    
+                
+                       
 
 
                     //efter att man har spelat klart ska meny visas
@@ -51,12 +54,10 @@ public class Game{
                             displayTopScores();
                             break;
                     }
-                    //if (!playAgain) {
+                    
                     //    break;  // gå ut ur loop
-                    //}
-                
-
-                }
+                } 
+                while (playAgain);
                     
                     
                 //Spara user input i variabel, och ändra user input till lowercase

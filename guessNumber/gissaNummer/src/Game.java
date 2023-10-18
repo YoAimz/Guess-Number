@@ -157,7 +157,24 @@ public class Game{
             if (userGuess == randomNumber){
                 countingGuess +=1;
                 System.out.println("Rätt! Du gissade rätt på " + countingGuess + " försök!"); 
-                lowScore.updateTopScores(countingGuess);
+                //lowScore.updateTopScores(countingGuess);
+                if (lowScore.qualifiesForLowScore(countingGuess)) {
+                
+                    if (lowScore.qualifiesForLowScore(countingGuess)) {
+                        System.out.print("Grattis! Du har en låg poäng och kan lägga till ditt resultat i scoreboarden. Vill du göra det? (Ja/Nej): ");
+                        String addToLowScore = userInput.next().toLowerCase();
+
+                        if (addToLowScore.equals("ja")) {
+                            lowScore.updateLowScores(countingGuess);
+                            System.out.println("Ditt resultat har lagts till i scoreboardeb!");
+                        } else {
+                            System.out.println("Ditt resultat har inte lagts till i scoreboard.");
+                        }
+                    }
+                }
+
+
+
                 break; //stoppa while loop om gisning är korrekt
                 }
             
@@ -186,12 +203,13 @@ public class Game{
         
     }
 
+
     //metod för att visa topplista
     private void displayTopScores() {
         System.out.println("Top Score-lista:");
 
-        for (int i = 0; i < lowScore.getTopScores().size(); i++) {
-            System.out.println("Plats " + (i + 1) + ": " + lowScore.getTopScores().get(i) + " gissningar");
+        for (int i = 0; i < lowScore.getLowScores().size(); i++) {
+            System.out.println("Plats " + (i + 1) + ": " + lowScore.getLowScores().get(i) + " gissningar");
         }
     }
 

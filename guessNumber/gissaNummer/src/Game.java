@@ -161,7 +161,7 @@ public class Game{
                 if (lowScore.qualifiesForLowScore(countingGuess)) {
                 
                     if (lowScore.qualifiesForLowScore(countingGuess)) {
-                        System.out.print("Grattis! Du har en låg poäng och kan lägga till ditt resultat i scoreboarden. Vill du göra det? (Ja/Nej): ");
+                        System.out.print("vill du lägga till resultatet i scoreboarden? (Ja/Nej): ");
                         String addToLowScore = userInput.next().toLowerCase();
 
                         if (addToLowScore.equals("ja")) {

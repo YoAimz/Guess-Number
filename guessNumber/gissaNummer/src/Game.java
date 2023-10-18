@@ -43,6 +43,7 @@ public class Game{
                     switch (choice){
                         //val 1 ska starta spelet om igen från game algorithm med loop
                         case userInputPlayAgain:
+                            gameAlgorithm();
                             break; 
                         //val 2 ska avsluta spelet utan att loopa igem
                         case userInputExit:
@@ -127,7 +128,7 @@ public class Game{
         Scanner userInput = new Scanner(System.in);
         
         System.out.println("Gissa ett tal mellan " + lowestNumber + " och " + highestNumber);
-        //System.out.println(randomNumber);
+        System.out.println(randomNumber);
         
 
         

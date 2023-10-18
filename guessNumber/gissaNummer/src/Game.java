@@ -126,7 +126,7 @@ public class Game{
         Scanner userInput = new Scanner(System.in);
         
         System.out.println("Gissa ett tal mellan " + lowestNumber + " och " + highestNumber);
-        System.out.println(randomNumber);
+        //System.out.println(randomNumber);
         
 
         

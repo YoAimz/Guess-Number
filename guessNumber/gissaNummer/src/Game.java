@@ -29,9 +29,6 @@ public class Game{
                 do {
                     
                 
-                       
-
-
                     //efter att man har spelat klart ska meny visas
                     System.out.println("\nMata in 1, 2 eller 3 för att välja alternativ");
                     System.out.println("1. Spela igen");
@@ -128,8 +125,14 @@ public class Game{
         Scanner userInput = new Scanner(System.in);
         
         System.out.println("Gissa ett tal mellan " + lowestNumber + " och " + highestNumber);
-        System.out.println(randomNumber);
+
+
+
+
+
+        //System.out.println(randomNumber);
         
+
 
         
         //While loop att koden ska fortfarande fråga tal tills man har gissat rätt
@@ -157,18 +160,28 @@ public class Game{
             if (userGuess == randomNumber){
                 countingGuess +=1;
                 System.out.println("Rätt! Du gissade rätt på " + countingGuess + " försök!"); 
-                //lowScore.updateTopScores(countingGuess);
+                //lowScore.updateLowScores(countingGuess);
+                //kollar om antal gisningar går att lägga i listan
                 if (lowScore.qualifiesForLowScore(countingGuess)) {
-                
-                    if (lowScore.qualifiesForLowScore(countingGuess)) {
-                        System.out.print("vill du lägga till resultatet i scoreboarden? (Ja/Nej): ");
+                    //checkar om man skriver nåt annat än ja eller nej
+                    boolean giltigtSvar = false;
+                    //frågar om man vill läga resultat i scoreboard
+                    while (!giltigtSvar) {
+                        System.out.print("Vill du lägga till resultatet i scoreboarden? (Ja/Nej): ");
                         String addToLowScore = userInput.next().toLowerCase();
-
+                
                         if (addToLowScore.equals("ja")) {
+                            // Uppdatera low score-listan
                             lowScore.updateLowScores(countingGuess);
-                            System.out.println("Ditt resultat har lagts till i scoreboardeb!");
-                        } else {
+                            System.out.println("Ditt resultat har lagts till i scoreboarden!");
+                            giltigtSvar = true;
+                        } 
+                        else if (addToLowScore.equals("nej")) {
                             System.out.println("Ditt resultat har inte lagts till i scoreboard.");
+                            giltigtSvar = true;
+                        } 
+                        else {
+                            System.out.println("Ogiltig inmatning. Vänligen skriv 'ja' eller 'nej'.");
                         }
                     }
                 }
